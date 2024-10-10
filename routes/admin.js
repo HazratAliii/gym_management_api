@@ -1,4 +1,3 @@
-// backend/routes/admin.js
 const express = require("express");
 const {
   createTrainer,
@@ -23,7 +22,5 @@ router.delete("/trainers/:trainerId", deleteTrainer);
 // Class Schedule
 router.post("/schedules", createClassSchedule);
 router.put("/schedules/assign", assignTrainer);
-
-// Additional admin routes can be added here
 
 module.exports = router;

@@ -1,4 +1,3 @@
-// backend/server.js
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const app = require("./app");

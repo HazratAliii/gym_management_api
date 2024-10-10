@@ -1,4 +1,3 @@
-// backend/controllers/authController.js
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
@@ -87,7 +86,6 @@ exports.login = async (req, res, next) => {
         errorDetails: "Incorrect password.",
       });
     }
-
     sendTokenResponse(user, 200, res);
   } catch (error) {
     next(error);

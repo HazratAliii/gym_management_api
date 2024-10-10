@@ -1,10 +1,11 @@
-// backend/controllers/trainerController.js
 const ClassSchedule = require("../models/ClassSchedule");
+const Trainer = require("../models/Trainer");
 
 // @desc    Get assigned class schedules for a Trainer
 exports.getAssignedSchedules = async (req, res, next) => {
   try {
     const trainer = await Trainer.findOne({ user: req.user._id });
+    console.log("trainer ", trainer);
     if (!trainer) {
       return res.status(404).json({
         success: false,

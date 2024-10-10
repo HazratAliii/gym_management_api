@@ -1,4 +1,3 @@
-// backend/routes/trainer.js
 const express = require("express");
 const { getAssignedSchedules } = require("../controllers/trainerController");
 const { protect, authorize } = require("../middleware/auth");

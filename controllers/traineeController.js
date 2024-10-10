@@ -1,4 +1,3 @@
-// backend/controllers/traineeController.js
 const ClassSchedule = require("../models/ClassSchedule");
 const Booking = require("../models/Booking");
 
@@ -7,7 +6,7 @@ exports.getAvailableSchedules = async (req, res, next) => {
   try {
     const schedules = await ClassSchedule.find({
       date: { $gte: new Date() },
-      trainees: { $size: { $lt: 10 } },
+      $expr: { $lt: [{ $size: "$trainees" }, 10] },
     }).populate("trainer", "user name expertise");
 
     res.status(200).json({
@@ -17,6 +16,7 @@ exports.getAvailableSchedules = async (req, res, next) => {
       data: schedules,
     });
   } catch (error) {
+    console.log("Error ", error);
     next(error);
   }
 };

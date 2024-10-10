@@ -90,7 +90,7 @@ exports.deleteTrainer = async (req, res, next) => {
     await ClassSchedule.deleteMany({ trainer: trainer._id });
 
     // Remove trainer
-    await trainer.remove();
+    // await trainer.remove();
 
     res.status(200).json({
       success: true,
@@ -185,5 +185,3 @@ exports.assignTrainer = async (req, res, next) => {
     next(error);
   }
 };
-
-// Additional Admin functionalities can be added here
